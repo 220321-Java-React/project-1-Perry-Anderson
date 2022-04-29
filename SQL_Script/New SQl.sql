@@ -44,13 +44,20 @@ INSERT INTO ers_reimbursment_status (reimb_status)
 VALUES('Pending'),
 	('Approved');
 
-INSERT INTO ers_reimbursment_type (reimb_type)
+INSERT INTO ers_reimbursment_types (reimb_type)
 VALUES('Vaccation'),
 	('Travel');
 
 INSERT INTO ers_reinbursments (reimb_amount, reimb_submitted, reimb_author_id_fk, reimb_status_is_fk, reimb_type_id_fk)
-VALUES 
+VALUES (1000, '07/19/2020', 2, 1, 1),
+	   (1200, '07/23/2020', 2, 2, 1);
 
+
+SELECT * FROM ers_reinbursments;
+SELECT * FROM ers_users;
+SELECT * FROM ers_reimbursment_status;
+SELECT * FROM ers_reimbursment_types;
+SELECT * FROM ers_user_roles;
 
 DROP TABLE ers_reinbursments;
 DROP TABLE ers_users;
