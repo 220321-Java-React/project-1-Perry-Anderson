@@ -11,7 +11,11 @@ public class UserService {
 		User userAttempt = uDAO.getUser(username, password);
 		
 		if (userAttempt != null) {
-			return null;
+			if(userAttempt.getPassword().equals(password)) {
+				return userAttempt;
+			}else {
+				return null;
+			}
 		}else {
 			return null;
 		}

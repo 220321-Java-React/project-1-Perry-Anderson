@@ -3,7 +3,7 @@ package com.revature;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-
+import com.revature.controllers.ErsReimbursementController;
 import com.revature.controllers.UserController;
 import com.revature.utils.ConnectionUtil;
 
@@ -22,13 +22,15 @@ public class Launcher {
 		}
 		
 		UserController uc = new UserController();
+		ErsReimbursementController erc = new ErsReimbursementController();
+		
 		Javalin app = Javalin.create(
 				config ->{
 					config.enableCorsForAllOrigins();
 				}
 			).start(3000);
 		
-	//	app.get("/employees", ec.getEmployeesHandler);
+		app.get("/reimb", erc.getReimbHandler);
 		
 		app.post("/login", uc.loginHandler);
 		

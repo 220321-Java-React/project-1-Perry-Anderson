@@ -46,7 +46,7 @@ async function loginFunction(){
         username:usern,
         password:userp
     }
-    console.log(user);
+    
 
     let response = await fetch(url + "/login", {
         method: "POST",
@@ -58,7 +58,7 @@ async function loginFunction(){
     let data = await response.json();
     console.log(data);
     if(response.status === 202){
-        document.getElementById("loginRow").innerText="Welcome " + data.first_name;
+        document.getElementById("loginRow").innerText="Welcome " + data.firstName;
     }else{
         document.getElementById("loginRow").innerText="Login Failed Refresh the Page";
     }
