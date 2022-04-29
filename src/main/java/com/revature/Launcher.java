@@ -30,7 +30,7 @@ public class Launcher {
 				}
 			).start(3000);
 		
-		app.get("/reimb", erc.getReimbHandler);
+	//	app.get("/reimb", erc.getReimbHandler);
 		
 		app.post("/login", uc.loginHandler);
 		

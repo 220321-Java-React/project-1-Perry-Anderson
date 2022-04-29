@@ -55,10 +55,11 @@ async function loginFunction(){
     });
 
     console.log(response.status);
+  
     let data = await response.json();
     console.log(data);
     if(response.status === 202){
-        document.getElementById("loginRow").innerText="Welcome " + data.firstName;
+        window.location.href = "http://127.0.0.1:5500/project-1-Perry-Anderson/FrontEnd/admin.html";
     }else{
         document.getElementById("loginRow").innerText="Login Failed Refresh the Page";
     }
