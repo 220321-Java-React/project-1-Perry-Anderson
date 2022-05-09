@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import com.google.gson.Gson;
 import com.revature.models.LoginDTO;
 import com.revature.services.UserService;
@@ -17,8 +19,10 @@ public class UserController {
 		
 		if(us.login(LDTO.getUsername(), LDTO.getPassword()) != null) {
 			ctx.req.getSession();
+
 			ctx.status(202);
 			String employeeJSON = gson.toJson(us.login(LDTO.getUsername(), LDTO.getPassword()));
+
 			ctx.result(employeeJSON);
 		}else {
 			ctx.status(401);

@@ -30,9 +30,11 @@ public class Launcher {
 				}
 			).start(3000);
 		
-	//	app.get("/reimb", erc.getReimbHandler);
+		app.get("/admin/getReimb", erc.getReimbHandler);
 		
 		app.post("/login", uc.loginHandler);
+		
+		app.post("/user/addReimb", erc.addReimbHandler);
 		
 	}
 	

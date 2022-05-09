@@ -28,7 +28,7 @@ CREATE TABLE ers_reimbursements (
 	reimb_amount int NOT NULL,
 	reimb_submitted TEXT,
 	reimb_author_id_fk int REFERENCES ers_users (ers_user_id),
-	reimb_status_is_fk int REFERENCES ers_reimbursement_status (reimb_status_id),
+	reimb_status_id_fk int REFERENCES ers_reimbursement_status (reimb_status_id),
 	reimb_type_id_fk int REFERENCES ers_reimbursement_types (reimb_type_id)
 );
 
@@ -38,7 +38,8 @@ VALUES('Admin'),
 
 INSERT INTO ers_users (ers_username, ers_password, user_first_name,user_last_name,user_email,user_role_id_fk)
 VALUES('user', 'password', 'Perry', 'Anderson', 'peryanderson@gmail.com', 1),
-	('user2', 'password2', 'TestEmp', 'TestEmpLast', 'test@test.com', 2);
+	('user2', 'password2', 'Steve', 'Guy', 'test@test.com', 2),
+	('user3', 'password3', 'Ryu', 'Person', 'person@test.com', 2);
 
 INSERT INTO ers_reimbursement_status (reimb_status)
 VALUES('Pending'),
@@ -47,18 +48,30 @@ VALUES('Pending'),
 
 INSERT INTO ers_reimbursement_types (reimb_type)
 VALUES('Vaccation'),
-	('Travel');
+	('Travel'),
+	('Other');
 
-INSERT INTO ers_reimbursements  (reimb_amount, reimb_submitted, reimb_author_id_fk, reimb_status_is_fk, reimb_type_id_fk)
-VALUES (1000, '07/19/2020', 2, 1, 1),
+INSERT INTO ers_reimbursements  (reimb_amount, reimb_submitted, reimb_author_id_fk, reimb_status_id_fk, reimb_type_id_fk)
+VALUES (1000, '07/19/2020', 2, 1, 3),
 	   (1500, '07/20/2020', 2, 1, 2),
-	   (1200, '07/23/2020', 2, 1, 1);
+	   (1200, '07/23/2020', 2, 1, 1),
+	   (1200, '07/23/2020', 1, 1, 1),
+	   (1300, '07/24/2020', 3, 1, 3),
+	   (1450, '07/24/2020', 3, 1, 1);
+
+select * from employees inner join roles 
+on role_id = role_id_fk where role_title = ?;
+
+SELECT * 
+FROM ers_reimbursements 
+LEFT JOIN ers_users ON ers_reimbursements.reimb_author_id_fk = ers_users.ers_user_id 
+ORDER BY ers_users.ers_user_id 
 
 
 SELECT * FROM ers_reimbursements;
 SELECT * FROM ers_users;
-SELECT * FROM ers_reimbursement_status;
-SELECT * FROM ers_reimbursement_types;
+SELECT * FROM ers_reimbursment_status;
+SELECT * FROM ers_reimbursment_types;
 SELECT * FROM ers_user_roles;
 
 DROP TABLE ers_reimbursements;

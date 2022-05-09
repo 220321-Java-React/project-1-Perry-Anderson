@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome User</title>
+</head>
+<body>
+    <h1>Hello User</h1>
+    <div id="table-row" class="row">
+        <table id="reimbTable" class="table table-dark table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Reimbursement ID</th>
+                    <th>Amount</th>
+                    <th>Date Submitted</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+
+            <tbody id="reimbBody">
+                
+            </tbody>
+
+        </table>
+    </div>
+    <button id="getReimbButton" class="btn btn-danger">Show Reimbursements</button>
+</div>
+
+<br>
+<br>
+<h2>Add a Reimbursment Request</h2>
+    <form>
+        <label for="reimbAmount">Amount</label>
+        <input type="number" id="reimbAmount" name="reimbAmount" min="0" max="1500000">
+        <label for= "reimbType"> Type</label>
+        <select id="reimbType" name="type">
+            <option value="vaccation">Vaccation</option>
+            <option value="travel">Travel</option>
+            <option value="other">Other</option>
+        </select>
+        <label for="reimbDate">Date:</label>
+        <input type="date" id="reimbDate" name="reimbDate"
+       min="2018-01-01" max="2025-12-31">
+          <button id="addReimbButton" class="btn btn-primary col-sm-3">Submit Reimbursement</button>
+    </form> 
+    <p id="addedReimb" ></p>
+    <script src="user.js"></script>
+</body>
+</html>
